@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Hospital Management';
+
+  isLayout = false;
+  layoutExcludedIn = [
+    '/login',
+    '/register',
+  ]
+
+  constructor(
+    private router: Router,
+  ) {
+    this.routeEvent(this.router);
+  }
+
+  routeEvent(router: Router){
+    router.events.subscribe(e => {
+      if(e instanceof NavigationStart){
+        if(!this.layoutExcludedIn.includes(e.url)){
+          this.isLayout = true;
+        }else{
+          this.isLayout = false;
+        }
+      }
+    });
+  }
 }

@@ -25,9 +25,24 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/lineicons.css",
+              "src/assets/css/materialdesignicons.min.css",
+              "src/assets/css/fullcalendar.css",
+              "src/assets/css/main.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/Chart.min.js",
+              "src/assets/js/dynamic-pie-chart.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/fullcalendar.js",
+              "src/assets/js/jvectormap.min.js",
+              "src/assets/js/world-merc.js",
+              "src/assets/js/polyfill.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +109,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "794e2298-02d2-4612-9100-46c779031af3"
   }
 }
