@@ -1,0 +1,120 @@
+   <!-- ========== section start ========== -->
+<section class="section">
+    <div class="container-fluid">
+        <!-- ========== title-wrapper start ========== -->
+        <div class="title-wrapper pt-30">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="title mb-30">
+                        <h2>Create A Doctor</h2>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper mb-30">
+                        <a class="btn btn-primary" routerLink="/doctors">Manage Doctors</a>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- ========== title-wrapper end ========== -->
+
+        <form class="form-elements-wrapper" [formGroup]="doctorForm" (submit)="handleSubmit()">
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- input style start -->
+                    <div class="card-style mb-30">
+                        <h6 class="mb-25">Personal Information</h6>
+                        <div class="input-style-1">
+                            <label for="first_name">First Name</label>
+                            <input type="text" placeholder="First Name" id="first_name" formControlName="first_name" />
+                        </div>
+                        <div class="input-style-1">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" placeholder="Last Name" id="last_name" formControlName="last_name" />
+                        </div>
+                    </div>
+                    <!-- end card -->
+
+                    <div class="card-style mb-30">
+                        <h6 class="mb-25">Contact Information</h6>
+                        <div class="input-style-1">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Email" id="email" formControlName="email" />
+                        </div>
+
+                        <div class="input-style-1">
+                            <label for="mobile">Mobile</label>
+                            <input type="tel" placeholder="Mobile" id="mobile" formControlName="mobile" />
+                        </div>
+                    </div>
+                    <!-- end card -->
+
+                    <div class="card-style mb-30">
+                        <h6 class="mb-25">Login Information</h6>
+                        <div class="input-style-1">
+                            <label for="password">Password</label>
+                            <input type="password" placeholder="Password" id="password" formControlName="password" />
+                        </div>
+                        <div class="input-style-1">
+                            <label for="confirm_password">Confirm Password</label>
+                            <input type="password" placeholder="Confirm Password" id="confirm_password" formControlName="confirm_password" />
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+                <div class="col-lg-6">
+                    <div class="card-style mb-30">
+                        <h6 class="mb-25">Photograph</h6>
+                        <div class="input-style-1">
+                            <label for="image">Image</label>
+                            <input type="file" id="image" formControlName="image">
+                        </div>
+                    </div>
+        
+                    <div class="card-style mb-30">
+                        <h6 class="mb-25">Qualification</h6>
+                        <div class="select-style-1">
+                            <label for="department">Department</label>
+                            <div class="select-position">
+                                <select id="department" formControlName="department">
+                                    <option value="">Select Department</option>
+                                    <option value="1">Cardiology</option>
+                                    <option value="2">Urology</option>
+                                    <option value="3">Neurology</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-style-1">
+                            <label for="education">Education</label>
+                            <textarea placeholder="Enter doctor's educational qualifications in details..." rows="5" class="bg-transparent" id="education" formControlName="education"></textarea>
+                        </div>
+
+                        <div class="input-style-1">
+                            <label for="experience">Experience</label>
+                            <textarea placeholder="Enter doctor's professional experience in details..." rows="5" class="bg-transparent" id="experience" formControlName="experience"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-style mb-30">
+                        <button type="submit" class="btn btn-primary me-3" [disabled]="doctorForm.invalid">Submit</button>
+                        <button type="button" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>        
+        
+    </div>
+    <!-- end container -->
+</section>
+<!-- ========== section end ========== -->

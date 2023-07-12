@@ -2,24 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from 'src/app/components/footer/footer.component';
-import { HeaderComponent } from 'src/app/components/header/header.component';
-import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
+import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
     path: '',
     component: DoctorListComponent
+  },
+  {
+    path: 'create',
+    component: DoctorCreateComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    DoctorListComponent
+    DoctorListComponent,
+    DoctorCreateComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
   ]
 })
 export class DoctorsModule { }
