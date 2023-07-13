@@ -22,7 +22,18 @@ const routes: Routes = [
   },
   {
     path: 'doctors',
-    loadChildren: () => import('./modules/doctors/doctors.module').then(m => m.DoctorsModule)
+    loadChildren: () => import('./modules/doctors/doctors.module').then(m => m.DoctorsModule),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'nurses',
+    loadChildren: () => import('./modules/nurses/nurses.module').then(m => m.NursesModule),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'patients',
+    loadChildren: () => import('./modules/patients/patients.module').then(m => m.PatientsModule),
+    canActivate: [authGuard],
   },
 ];
 
