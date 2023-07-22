@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../register.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
   registerForm: FormGroup;
+  apiUrl = environment.apiUrl;
 
   constructor(
     private fb: FormBuilder,
@@ -29,7 +31,7 @@ export class RegisterComponent {
     console.log(this.registerForm.value);
 
     if(this.registerForm.valid){
-      this.registerService.register('http://hmapi.test/v1/auth/register', this.registerForm.value).subscribe(result => {
+      this.registerService.register(`${this.apiUrl}/auth/register`, this.registerForm.value).subscribe(result => {
         console.log("Result from api", result);
         if(result.success){
           this.router.navigate(['login']);

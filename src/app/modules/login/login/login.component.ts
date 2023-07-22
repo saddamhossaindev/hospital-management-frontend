@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  apiUrl = environment.apiUrl;
 
   constructor(
     private fb: FormBuilder,
@@ -26,7 +28,7 @@ export class LoginComponent {
   handleLoginFormSubmission(){
     console.log(this.loginForm.value);
     if(this.loginForm.valid){
-      this.loginService.login('http://hmapi.test/v1/auth/login', this.loginForm.value).subscribe(result => {
+      this.loginService.login(`${this.apiUrl}/v1/auth/login`, this.loginForm.value).subscribe(result => {
         console.log("Result from api", result);
         if(result.success){
 
