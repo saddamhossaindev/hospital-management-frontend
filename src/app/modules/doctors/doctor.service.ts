@@ -22,4 +22,8 @@ export class DoctorService {
   getDoctors(url: string): Observable<IDoctorListResponse> { 
     return this.http.get<IDoctorListResponse>(url);
   }
+
+  deleteDoctors(url: string): Observable<{success: boolean}> { 
+    return this.http.delete<{success: boolean}>(url);
+  }
 }

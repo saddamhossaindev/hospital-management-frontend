@@ -22,6 +22,13 @@
         <!-- ========== title-wrapper end ========== -->
 
         <div class="tables-wrapper">
+
+            <div class="row" *ngIf="isDoctorDeleted">
+                <div class="col-md-12">
+                    <div class="alert alert-success">Doctor was deleted successfully.</div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
@@ -29,61 +36,68 @@
                         <p class="text-sm mb-20">
                             Here you are seeing all of our doctors.
                         </p>
-                        <div class="table-wrapper table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="lead-info">
-                                            <h6>Name</h6>
-                                        </th>
-                                        <th class="lead-email">
-                                            <h6>Email</h6>
-                                        </th>
-                                        <th class="lead-phone">
-                                            <h6>Phone No</h6>
-                                        </th>
-                                        <th class="lead-company">
-                                            <h6>Department</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Action</h6>
-                                        </th>
-                                    </tr>
-                                    <!-- end table row-->
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let doctor of (doctors$ | async)?.doctors">
-                                        <td class="min-width">
-                                            <div class="lead">
-                                                <div class="lead-image">
-                                                    <img src="assets/images/lead/lead-1.png" alt="" />
+
+                        <ng-container *ngIf="doctors.length; else noDoctors">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="lead-info">
+                                                <h6>Name</h6>
+                                            </th>
+                                            <th class="lead-email">
+                                                <h6>Email</h6>
+                                            </th>
+                                            <th class="lead-phone">
+                                                <h6>Phone No</h6>
+                                            </th>
+                                            <th class="lead-company">
+                                                <h6>Department</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Action</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let doctor of doctors">
+                                            <td class="min-width">
+                                                <div class="lead">
+                                                    <div class="lead-image">
+                                                        <img src="assets/images/lead/lead-1.png" alt="" />
+                                                    </div>
+                                                    <div class="lead-text">
+                                                        <p>{{ doctor.first_name + " " + doctor.last_name }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="lead-text">
-                                                    <p>{{ doctor.first_name + " " + doctor.last_name }}</p>
+                                            </td>
+                                            <td class="min-width">
+                                                <p><a [href]="'mailto:' + doctor.email">{{ doctor.email }}</a></p>
+                                            </td>
+                                            <td class="min-width">
+                                                <p><a [href]="'tel:' + doctor.mobile">{{ doctor.mobile }}</a></p>
+                                            </td>
+                                            <td class="min-width">
+                                                <p>{{ doctor.department }}</p>
+                                            </td>
+                                            <td>
+                                                <div class="action">
+                                                    <button class="text-danger" (click)="deleteDoctor(doctor.id)">
+                                                        <i class="lni lni-trash-can"></i>
+                                                    </button>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class="min-width">
-                                            <p><a [href]="'mailto:' + doctor.email">{{ doctor.email }}</a></p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p><a [href]="'tel:' + doctor.mobile">{{ doctor.mobile }}</a></p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>{{ doctor.department }}</p>
-                                        </td>
-                                        <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- end table -->
-                        </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- end table -->
+                            </div>
+                        </ng-container>
+
+                        <ng-template #noDoctors>
+                            <div class="alert alert-danger mt-4">No doctors found.</div>
+                        </ng-template>
                     </div>
                     <!-- end card -->
                 </div>
