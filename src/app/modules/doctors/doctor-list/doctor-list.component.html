@@ -34,7 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th class="lead-info">
-                                            <h6>Lead</h6>
+                                            <h6>Name</h6>
                                         </th>
                                         <th class="lead-email">
                                             <h6>Email</h6>
@@ -43,7 +43,7 @@
                                             <h6>Phone No</h6>
                                         </th>
                                         <th class="lead-company">
-                                            <h6>Company</h6>
+                                            <h6>Department</h6>
                                         </th>
                                         <th>
                                             <h6>Action</h6>
@@ -52,25 +52,25 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let doctor of (doctors$ | async)?.doctors">
                                         <td class="min-width">
                                             <div class="lead">
                                                 <div class="lead-image">
                                                     <img src="assets/images/lead/lead-1.png" alt="" />
                                                 </div>
                                                 <div class="lead-text">
-                                                    <p>Courtney Henry</p>
+                                                    <p>{{ doctor.first_name + " " + doctor.last_name }}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="min-width">
-                                            <p><a href="#0">yourmail@gmail.com</a></p>
+                                            <p><a [href]="'mailto:' + doctor.email">{{ doctor.email }}</a></p>
                                         </td>
                                         <td class="min-width">
-                                            <p>(303)555 3343523</p>
+                                            <p><a [href]="'tel:' + doctor.mobile">{{ doctor.mobile }}</a></p>
                                         </td>
                                         <td class="min-width">
-                                            <p>UIdeck digital agency</p>
+                                            <p>{{ doctor.department }}</p>
                                         </td>
                                         <td>
                                             <div class="action">
@@ -80,152 +80,6 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <!-- end table row -->
-                                    <tr>
-                                        <td class="min-width">
-                                            <div class="lead">
-                                                <div class="lead-image">
-                                                    <img src="assets/images/lead/lead-2.png" alt="" />
-                                                </div>
-                                                <div class="lead-text">
-                                                    <p>John Doe</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="min-width">
-                                            <p><a href="#0">yourmail@gmail.com</a></p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>(303)555 3343523</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>Graygrids digital agency</p>
-                                        </td>
-                                        <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
-                                    <tr>
-                                        <td class="min-width">
-                                            <div class="lead">
-                                                <div class="lead-image">
-                                                    <img src="assets/images/lead/lead-3.png" alt="" />
-                                                </div>
-                                                <div class="lead-text">
-                                                    <p>David Smith</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="min-width">
-                                            <p><a href="#0">yourmail@gmail.com</a></p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>(303)555 3343523</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>Abc agency</p>
-                                        </td>
-                                        <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
-                                    <tr>
-                                        <td class="min-width">
-                                            <div class="lead">
-                                                <div class="lead-image">
-                                                    <img src="assets/images/lead/lead-4.png" alt="" />
-                                                </div>
-                                                <div class="lead-text">
-                                                    <p>Jonathon</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="min-width">
-                                            <p><a href="#0">yourmail@gmail.com</a></p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>(303)555 3343523</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>Creative IT Agency</p>
-                                        </td>
-                                        <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
-                                    <tr>
-                                        <td>
-                                            <div class="lead">
-                                                <div class="lead-image">
-                                                    <img src="assets/images/lead/lead-5.png" alt="" />
-                                                </div>
-                                                <div class="lead-text">
-                                                    <p>Anna Lee</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p><a href="#0">yourmail@gmail.com</a></p>
-                                        </td>
-                                        <td>
-                                            <p>(303)555 3343523</p>
-                                        </td>
-                                        <td>
-                                            <p>Halal It agency</p>
-                                        </td>
-                                        <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
-                                    <tr>
-                                        <td>
-                                            <div class="lead">
-                                                <div class="lead-image">
-                                                    <img src="assets/images/lead/lead-6.png" alt="" />
-                                                </div>
-                                                <div class="lead-text">
-                                                    <p>Gray Simon</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p><a href="#0">yourmail@gmail.com</a></p>
-                                        </td>
-                                        <td>
-                                            <p>(303)555 3343523</p>
-                                        </td>
-                                        <td>
-                                            <p>DesignCourse</p>
-                                        </td>
-                                        <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                    <i class="lni lni-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- end table row -->
                                 </tbody>
                             </table>
                             <!-- end table -->
